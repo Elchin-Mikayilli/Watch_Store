@@ -1,0 +1,35 @@
+
+
+
+
+<!-- accounts/templates/accounts/login.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Login</h2>
+  
+  <form method="POST">
+    {% csrf_token %}
+    <div>
+      <label for="username">Username:</label>
+      <input type="text" name="username" required>
+    </div>
+    
+    <div>
+      <label for="password">Password:</label>
+      <input type="password" name="password" required>
+    </div>
+    
+    <button type="submit">Login</button>
+  </form>
+  
+  <p>Don't have an account? <a href="#">Sign up</a></p>
+  
+  {% if messages %}
+    <ul>
+      {% for message in messages %}
+        <li>{{ message }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endblock %}

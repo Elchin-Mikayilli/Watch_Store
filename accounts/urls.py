@@ -1,9 +1,12 @@
 
 
+
+# accounts/urls.py
 from django.urls import path
-from accounts import views as accounts_views
+from . import views
 
 urlpatterns = [
-    path('say-hi/',accounts_views.say_hi)
-
+    path('login/', views.login_view, name='login'),
+    path('logout/', views.logout_view, name='logout'),
 ]
+
